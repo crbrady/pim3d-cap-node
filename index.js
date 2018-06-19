@@ -14,7 +14,6 @@ const hostname = os.hostname();
 
 client.on('connect', function () {
     client.subscribe('capture')
-    client.publish('capture', 'raspistill -v -q 100 -e jpg -ISO 100 -t 1 -n -awb incandescent -ss 150000 -w 1640 -h 1232 -o cap01.jpg')
 })
 
 client.on('message', function (topic, message) {
