@@ -1,4 +1,4 @@
-const fs = require('fs');
+
 const http = require('http');
 const url = require('url');
 
@@ -10,7 +10,7 @@ const PropertiesReader = require('properties-reader');
 const properties = PropertiesReader('properties.prop');
 const client  = mqtt.connect('mqtt://' + properties.get('brokerip'));
 
-
+var image;
 
 client.on('connect', function () {
     client.subscribe('capture')
@@ -21,14 +21,13 @@ client.on('connect', function () {
 client.on('message', function (topic, message) {
     if(topic == "capture"){
         console.log(message.toString());
-        client.publish('img', fs.readFileSync('./cap01.jpg'));
     }
 
     if(topic == "img"){
         console.log(message.length)
+        image = message;
     }
 
-    count++;
 })
 
 
@@ -38,10 +37,10 @@ http.createServer(function(req, res){
     var request = url.parse(req.url, true);
     var action = request.pathname;
 
-    if (action == '/logo.gif') {
-        var img = fs.readFileSync('./logo.gif');
-        res.writeHead(200, {'Content-Type': 'image/gif' });
-        res.end(img, 'binary');
+    if (action == '/img') {
+
+        res.writeHead(200, {'Content-Type': 'image/jpg' });
+        res.end(image, 'binary');
     } else {
         res.writeHead(200, {'Content-Type': 'text/plain' });
         res.end('Hello World \n');

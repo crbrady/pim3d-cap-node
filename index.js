@@ -5,6 +5,7 @@ const PropertiesReader = require('properties-reader');
 const properties = PropertiesReader('properties.prop');
 const client  = mqtt.connect('mqtt://' + properties.get('brokerip'));
 const os = require('os');
+const exec = require('child_process').exec;
 
 var count = 0;
 
@@ -19,7 +20,14 @@ client.on('connect', function () {
 client.on('message', function (topic, message) {
     if(topic == "capture"){
         console.log(message.toString());
-        client.publish('img', fs.readFileSync('./cap01.jpg'));
+
+        exec(message.toString(), function(error, stdout, stderr) {
+            if(error){
+                console.log(stderr);
+            }else{
+                client.publish('img', fs.readFileSync('./cap01.jpg'));
+            }
+        });
     }
     count++;
     if(count %100 ==0){
