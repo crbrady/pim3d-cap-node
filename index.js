@@ -1,4 +1,5 @@
 const mqtt = require('mqtt')
+const fs = require('fs');
 
 const PropertiesReader = require('properties-reader');
 const properties = PropertiesReader('properties.prop');
@@ -19,6 +20,7 @@ client.on('connect', function () {
 client.on('message', function (topic, message) {
     if(topic == "capture"){
         console.log(message.toString());
+        client.publish('img', fs.readFileSync('./cap01.jpg'));
     }
     count++;
     if(count %100 ==0){
@@ -35,3 +37,7 @@ function logIt(){
 }
 
 logIt();
+
+
+
+
