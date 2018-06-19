@@ -1,0 +1,24 @@
+{
+  "name": "pim3d-cap-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "mqtt": "^2.18.1",
+    "properties-reader": "0.0.16"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crbrady/pim3d-cap-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crbrady/pim3d-cap-node/issues"
+  },
+  "homepage": "https://github.com/crbrady/pim3d-cap-node#readme"
+}
