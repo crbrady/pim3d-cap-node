@@ -11,13 +11,18 @@ var count = 0;
 
 const hostname = os.hostname();
 
+console.log('hostname='+hostname);
 //console.log(hostname + " -- " + properties.get('brokerip'));
 
 client.on('connect', function () {
-    client.subscribe('capture')
-})
+    client.subscribe('capture');
+    client.subscribe('request_heartbeat');
+});
+
+
 
 client.on('message', function (topic, message) {
+
     if(topic == "capture"){
         console.log(message.toString());
 
@@ -29,6 +34,22 @@ client.on('message', function (topic, message) {
             }
         });
     }
+
+    if(topic == "request_heartbeat"){
+
+        var status = {
+            name: os.hostname(),
+            freeRam: os.freemem(),
+            totalRam: os.totalmem(),
+            platform: os.platform(),
+            uptime: os.uptime()
+        }
+
+        client.publish('client_status', JSON.stringify( status));
+        console.log("client_status");
+    }
+
+
     count++;
     if(count %100 ==0){
         console.log(message.toString())

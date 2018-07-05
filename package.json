@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "mqtt": "^2.18.1",
-    "properties-reader": "0.0.16"
+    "properties-reader": "0.0.16",
+    "socket.io": "^2.1.1"
   },
   "devDependencies": {},
   "scripts": {
