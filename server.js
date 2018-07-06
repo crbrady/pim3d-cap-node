@@ -13,6 +13,7 @@ const client  = mqtt.connect('mqtt://' + properties.get('brokerip'));
 var image;
 var thumbnails = {};
 var cam_status = {};
+var blankThumb = fs.readFileSync('./blankThumb.jpg');
 
 client.on('connect', function () {
     client.subscribe('capture');
@@ -22,12 +23,15 @@ client.on('connect', function () {
     client.subscribe('picam2/thumb');
 
     //client.publish('capture', 'raspistill -v -q 100 -e jpg -ISO 100 -t 1 -n -awb incandescent -ss 150000 -w 1640 -h 1232 -o cap01.jpg')
-
-    client.publish('picam2_thumbcapture', 'raspistill -v -q 100 -e jpg -ISO 100 -t 1 -n -awb incandescent -ss 150000 -w 320 -h 150 -o cap01_tn.jpg')
-
 });
 
-var tn;
+setInterval(requestHeartbeat, 5000);
+setInterval(getThumbnails, 3000);
+
+function getThumbnails(){
+    client.publish('picam2/thumbcapture', 'raspistill -v -q 100 -e jpg -ISO 100 -t 1 -n -awb incandescent -ss 150000 -w 320 -h 150 -o cap01_tn.jpg')
+    client.publish('picam1/thumbcapture', 'raspistill -v -q 100 -e jpg -ISO 100 -t 1 -n -awb incandescent -ss 150000 -w 320 -h 150 -o cap01_tn.jpg')
+}
 
 
 client.on('message', function (topic, message) {
@@ -41,15 +45,7 @@ client.on('message', function (topic, message) {
         if(topicSplit[1] = 'thumb'){
             thumbnails[topicSplit[0]] = message;
         }
-            //
-            // if(topicSplit == "picam2/thumb"){
-            //     console.log("tn= "+message.length);
-            //     tn = message;
-            // }
-
     }
-
-
 
     if(topic == "img"){
         console.log(message.length);
@@ -71,7 +67,7 @@ client.on('message', function (topic, message) {
     }
 });
 
-setInterval(requestHeartbeat, 5000);
+
 
 var clientStatus = [];
 function requestHeartbeat(){
@@ -113,15 +109,7 @@ server.listen(2000);
 http.createServer(function(req, res){
     var request = url.parse(req.url, true);
     var action = request.pathname;
-
-    if (action == '/status') {
-        res.writeHead(200, {'Content-Type': 'application/json' });
-        cam_status = {};
-        client.publish('report');
-        setInterval(function(){
-            res.end(JSON.stringify(cam_status));
-        },100)
-    }
+    console.log("http:"+action);
 
     if (action == '/img') {
 
@@ -133,13 +121,17 @@ http.createServer(function(req, res){
 
     var actionArr = action.split('/');
 
-    if(actionArr.length > 1)
+    if(actionArr.length > 2)
     {
-        if(actionArr[1] == 'thumb'){
-            res.writeHead(200, {'Content-Type': 'image/jpg' });
-            res.end(actionArr[0], 'binary');
+        if(actionArr[2] == 'thumb'){
+            if(thumbnails[actionArr[1]]){
+                console.log(thumbnails[actionArr[1]].length);
+                res.writeHead(200, {'Content-Type': 'image/jpg' });
+                res.end(thumbnails[actionArr[1]], 'binary');
+            }else{
+                res.writeHead(200, {'Content-Type': 'image/jpg' });
+                res.end(blankThumb, 'binary');
+            }
         }
     }
-
-
 }).listen(8080, '127.0.0.1');

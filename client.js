@@ -42,11 +42,14 @@ client.on('message', function (topic, message) {
 
         console.log(message.toString());
 
+        debug.time('Thumb');
+
         exec(message.toString(), function(error, stdout, stderr) {
             if(error){
                 console.log(stderr);
             }else{
                 client.publish(hostname+'/thumb', fs.readFileSync('./cap01_tn.jpg'));
+                debug.timeEnd('Thumb');
             }
         });
     }
@@ -64,14 +67,11 @@ client.on('message', function (topic, message) {
         client.publish('client_status', JSON.stringify( status));
     }
 
-
     count++;
     if(count %100 ==0){
         console.log(message.toString())
     }
 })
-
-
 
 
 function logIt(){
