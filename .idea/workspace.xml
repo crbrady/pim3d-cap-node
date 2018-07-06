@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8590654d-5630-423e-b9b5-7db3329ce1fa" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/client.js" afterPath="$PROJECT_DIR$/client.js" />
+      <change beforePath="$PROJECT_DIR$/react/package.json" afterPath="$PROJECT_DIR$/react/package.json" />
+      <change beforePath="$PROJECT_DIR$/react/src/index.css" afterPath="$PROJECT_DIR$/react/src/index.css" />
+      <change beforePath="$PROJECT_DIR$/react/src/index.js" afterPath="$PROJECT_DIR$/react/src/index.js" />
+      <change beforePath="$PROJECT_DIR$/react/yarn.lock" afterPath="$PROJECT_DIR$/react/yarn.lock" />
       <change beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -50,8 +54,8 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="39" />
+            <state relative-caret-position="720">
+              <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -60,8 +64,8 @@
       <file leaf-file-name="client.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="19" column="33" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+            <state relative-caret-position="486">
+              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -70,11 +74,21 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/react/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="151" column="26" lean-forward="true" selection-start-line="151" selection-start-column="26" selection-end-line="151" selection-end-column="26" />
+            <state relative-caret-position="352">
+              <caret line="209" column="59" lean-forward="false" selection-start-line="209" selection-start-column="59" selection-end-line="209" selection-end-column="59" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/react/src/index.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="88" column="33" lean-forward="true" selection-start-line="88" selection-start-column="33" selection-end-line="88" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -105,7 +119,15 @@
       <find>state</find>
       <find>mainTitleStyle</find>
       <find>console</find>
+      <find>Cams</find>
+      <find>toggleLabel</find>
+      <find>wra</find>
       <find>client</find>
+      <find>tn=</find>
+      <find>10px</find>
+      <find>asdf</find>
+      <find>_th</find>
+      <find>statusObject</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,9 +146,10 @@
         <option value="$PROJECT_DIR$/tmpSocket/socket-timer/yarn.lock" />
         <option value="$PROJECT_DIR$/cam.js" />
         <option value="$PROJECT_DIR$/node.js" />
+        <option value="$PROJECT_DIR$/react/src/index.css" />
+        <option value="$PROJECT_DIR$/client.js" />
         <option value="$PROJECT_DIR$/react/src/index.js" />
         <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/client.js" />
       </list>
     </option>
   </component>
@@ -148,9 +171,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="235" />
-    <option name="y" value="162" />
+    <option name="y" value="44" />
     <option name="width" value="1423" />
-    <option name="height" value="1321" />
+    <option name="height" value="1439" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -180,6 +203,12 @@
               <item name="pim3d-cap-node" type="462c0819:PsiDirectoryNode" />
               <item name="react" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="pim3d-cap-node" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pim3d-cap-node" type="462c0819:PsiDirectoryNode" />
+              <item name="react" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -193,6 +222,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///work/pim3d-cap-node/client.js" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -236,12 +266,12 @@
       <workItem from="1529374212451" duration="7236000" />
       <workItem from="1529780783156" duration="1417000" />
       <workItem from="1529943526436" duration="11897000" />
-      <workItem from="1530815894922" duration="24048000" />
+      <workItem from="1530815894922" duration="33848000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44598000" />
+    <option name="totallyTimeSpent" value="54398000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -253,7 +283,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="235" y="162" width="1423" height="1321" extended-state="0" />
+    <frame x="235" y="44" width="1423" height="1439" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21897289" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -261,7 +291,7 @@
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32917705" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14383043" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21529509" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -286,7 +316,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server.js</url>
-          <line>44</line>
+          <line>59</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
@@ -428,10 +458,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/react/src/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="88" column="33" lean-forward="true" selection-start-line="88" selection-start-column="33" selection-end-line="88" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/react/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="151" column="26" lean-forward="true" selection-start-line="151" selection-start-column="26" selection-end-line="151" selection-end-column="26" />
+        <state relative-caret-position="352">
+          <caret line="209" column="59" lean-forward="false" selection-start-line="209" selection-start-column="59" selection-end-line="209" selection-end-column="59" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -440,16 +478,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="39" />
+        <state relative-caret-position="720">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="19" column="33" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+        <state relative-caret-position="486">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
         </state>
       </provider>

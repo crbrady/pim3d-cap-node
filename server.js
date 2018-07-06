@@ -11,7 +11,7 @@ const properties = PropertiesReader('properties.prop');
 const client  = mqtt.connect('mqtt://' + properties.get('brokerip'));
 
 var image;
-
+var thumbnails = {};
 var cam_status = {};
 
 client.on('connect', function () {
@@ -20,20 +20,35 @@ client.on('connect', function () {
     client.subscribe('client_status');
     client.subscribe('picam2_thumb');
 
-    client.publish('capture', 'raspistill -v -q 100 -e jpg -ISO 100 -t 1 -n -awb incandescent -ss 150000 -w 1640 -h 1232 -o cap01.jpg')
+    //client.publish('capture', 'raspistill -v -q 100 -e jpg -ISO 100 -t 1 -n -awb incandescent -ss 150000 -w 1640 -h 1232 -o cap01.jpg')
 
     client.publish('picam2_thumbcapture', 'raspistill -v -q 100 -e jpg -ISO 100 -t 1 -n -awb incandescent -ss 150000 -w 320 -h 150 -o cap01_tn.jpg')
 
 });
+
+var tn;
+
 
 client.on('message', function (topic, message) {
     if(topic == "capture"){
         console.log(message.toString());
     }
 
-    if(topic == "picam2_thumb"){
-        console.log("tn= "+message.length);
+    var topicSplit = topic.split('/');
+    console.log("topic= " + topic);
+    if(topicSplit.length > 1){
+        if(topicSplit[1] = 'thumb'){
+            thumbnails[topicSplit[0]] = message;
+        }
+            //
+            // if(topicSplit == "picam2/thumb"){
+            //     console.log("tn= "+message.length);
+            //     tn = message;
+            // }
+
     }
+
+
 
     if(topic == "img"){
         console.log(message.length);
@@ -61,7 +76,7 @@ var clientStatus = [];
 function requestHeartbeat(){
     clientStatus = [];
     client.publish("request_heartbeat","");
-    setTimeout(sendHeartbeats, 3000);
+    setTimeout(sendHeartbeats, 4000);
 }
 
 function sendHeartbeats(){
@@ -105,11 +120,6 @@ http.createServer(function(req, res){
         setInterval(function(){
             res.end(JSON.stringify(cam_status));
         },100)
-
-
-    } else {
-        res.writeHead(200, {'Content-Type': 'text/plain' });
-        res.end('Hello World \n');
     }
 
     if (action == '/img') {
@@ -117,4 +127,18 @@ http.createServer(function(req, res){
         res.writeHead(200, {'Content-Type': 'image/jpg' });
         res.end(image, 'binary');
     }
+
+    console.log(action);
+
+    var actionArr = action.split('/');
+
+    if(actionArr.length > 1)
+    {
+        if(actionArr[1] == 'thumb'){
+            res.writeHead(200, {'Content-Type': 'image/jpg' });
+            res.end(actionArr[0], 'binary');
+        }
+    }
+
+
 }).listen(8080, '127.0.0.1');
