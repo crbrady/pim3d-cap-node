@@ -24,6 +24,7 @@ client.on('connect', function () {
 
 
 client.on('message', function (topic, message) {
+    console.log(topic);
 
     if(topic == "capture"){
         console.log(message.toString());
@@ -38,6 +39,7 @@ client.on('message', function (topic, message) {
     }
 
     if(topic == hostname+'/thumbcapture'){
+
         console.log(message.toString());
 
         exec(message.toString(), function(error, stdout, stderr) {
@@ -60,7 +62,6 @@ client.on('message', function (topic, message) {
         }
 
         client.publish('client_status', JSON.stringify( status));
-        console.log("client_status");
     }
 
 
@@ -75,7 +76,7 @@ client.on('message', function (topic, message) {
 
 function logIt(){
     console.log("Status - MQTT Connected: " + client.connected + "  Message Count: " + count);
-    setTimeout(logIt,10000);
+    setTimeout(logIt,60000);
 }
 
 logIt();
