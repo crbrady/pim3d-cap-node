@@ -18,11 +18,11 @@ client.on('connect', function () {
     client.subscribe('capture');
     client.subscribe('img');
     client.subscribe('client_status');
-    client.subscribe('picam1/thumb');
+    client.subscribe('picam1_thumb');
 
     client.publish('capture', 'raspistill -v -q 100 -e jpg -ISO 100 -t 1 -n -awb incandescent -ss 150000 -w 1640 -h 1232 -o cap01.jpg')
 
-    client.publish('picam1/thumbcapture', 'raspistill -v -q 100 -e jpg -ISO 100 -t 1 -n -awb incandescent -ss 150000 -w 320 -h 150 -o cap01_tn.jpg')
+    client.publish('picam1_thumbcapture', 'raspistill -v -q 100 -e jpg -ISO 100 -t 1 -n -awb incandescent -ss 150000 -w 320 -h 150 -o cap01_tn.jpg')
 
 });
 
@@ -31,7 +31,7 @@ client.on('message', function (topic, message) {
         console.log(message.toString());
     }
 
-    if(topic == "picam1/thumb"){
+    if(topic == "picam1_thumb"){
         console.log("tn= "+message.length);
     }
 

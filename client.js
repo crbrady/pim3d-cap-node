@@ -17,8 +17,8 @@ console.log('hostname='+hostname);
 client.on('connect', function () {
     client.subscribe('capture');
     client.subscribe('request_heartbeat');
-    client.subscribe(hostname+'/thumbcapture');
-    console.log(hostname+'/thumbcapture');
+    client.subscribe(hostname+'_humbcapture');
+    console.log(hostname+'_thumbcapture');
 });
 
 
@@ -38,7 +38,7 @@ client.on('message', function (topic, message) {
         });
     }
 
-    if(topic == hostname+'/thumbcapture'){
+    if(topic == hostname+'_thumbcapture'){
 
         console.log(message.toString());
 
@@ -46,7 +46,7 @@ client.on('message', function (topic, message) {
             if(error){
                 console.log(stderr);
             }else{
-                client.publish(hostname+'/thumb', fs.readFileSync('./cap01_tn.jpg'));
+                client.publish(hostname+'_thumb', fs.readFileSync('./cap01_tn.jpg'));
             }
         });
     }
