@@ -18,7 +18,8 @@ client.on('connect', function () {
     client.subscribe('capture');
     client.subscribe('img');
     client.subscribe('client_status');
-    client.subscribe('picam2_thumb');
+    client.subscribe('picam1/thumb');
+    client.subscribe('picam2/thumb');
 
     //client.publish('capture', 'raspistill -v -q 100 -e jpg -ISO 100 -t 1 -n -awb incandescent -ss 150000 -w 1640 -h 1232 -o cap01.jpg')
 

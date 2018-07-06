@@ -17,7 +17,7 @@ console.log('hostname='+hostname);
 client.on('connect', function () {
     client.subscribe('capture');
     client.subscribe('request_heartbeat');
-    client.subscribe(hostname+'_thumbcapture');
+    client.subscribe(hostname+'/thumbcapture');
     console.log(hostname+'/thumbcapture');
 });
 
