@@ -42,14 +42,14 @@ client.on('message', function (topic, message) {
 
         console.log(message.toString());
 
-        debug.time('Thumb');
+        console.time('Thumb');
 
         exec(message.toString(), function(error, stdout, stderr) {
             if(error){
                 console.log(stderr);
             }else{
                 client.publish(hostname+'/thumb', fs.readFileSync('./cap01_tn.jpg'));
-                debug.timeEnd('Thumb');
+                console.timeEnd('Thumb');
             }
         });
     }
